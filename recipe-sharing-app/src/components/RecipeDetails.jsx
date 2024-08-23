@@ -1,5 +1,5 @@
 // 
-import { useRecipeStore } from '../store/useRecipeStore';
+import { useRecipeStore } from '../store/recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
 
