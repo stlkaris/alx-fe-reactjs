@@ -5,6 +5,8 @@ import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import SearchBar from './components/SearchBar';
 import IngredientFilter from './components/IngredientFilter';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         </Routes>
         <SearchBar />
         <IngredientFilter />
+        <FavoritesList />
+        <RecommendationsList />
       </div>
     </Router>
   );
