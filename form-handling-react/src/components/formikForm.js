@@ -5,12 +5,9 @@ import * as Yup from 'yup';
 const formikForm = () => {
     // define validation schema with yup
     const validationSchema = Yup.object({
-        username: Yup.string()
-       .required("Username is required"),
-       email: Yup.string()
-        .required("Email is required"),
-        password: Yup.string()
-        .required("Password is required")
+        username: Yup.string().required("Username is required"),
+       email: Yup.string().required("Email is required"),
+        password: Yup.string().required("Password is required")
        
     });
      // initial form values
