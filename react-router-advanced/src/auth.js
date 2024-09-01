@@ -1,15 +1,32 @@
-import React from 'react'
+import { useState, useEffect, useContext, createContext } from "react";
 
-const auth = {
-    isAuthenticated:false,
-    login(cb) {
+const AuthContext = createContext();
+
+export function useAuth() {
+    return useContext(AuthContext)
+
+}
+
+export function AuthProvider ({children}){
+  const [isAuthenticated, setAuthenticated] = useState(false)
+
+
+// const auth = {
+//     isAuthenticated:false,
+     const login = (cb) => {
         auth.isAuthenticated = true;
         setTimeout(cb, 100);
-    },
-    logout(cb) {
+    }
+    const logout = (cb) => {
         auth.isAuthenticated = false;
         setTimeout(cb, 100)
     }
 };
 
-export default auth;
+const value = {
+    isAuthenticated,
+    login,
+    logout,
+}
+
+return <AuthProvider.Provider value={value}>{children}</AuthProvider.Provider>

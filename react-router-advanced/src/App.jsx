@@ -8,9 +8,11 @@ import User from "./components/User";
 import BlogPost from "./components/BlogPost";
 import ProtectedRoute from './components/ProtectedRoute'
 import Login from "./components/Login";
+import { AuthProvider } from "./auth";
 
 function App () {
   return (
+    <AuthProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -22,7 +24,7 @@ function App () {
         <Route path="/blog/:id" element={<BlogPost />}></Route>
         </Routes>
     </Router>
-
+  </AuthProvider>
   )
 }
 
