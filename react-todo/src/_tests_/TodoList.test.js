@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, getByText, screen } from '@testing-library/react'
-import TodoList from '../components/TodoList'
+import TodoList from './components/TodoList'
 
 
 test('renders initial todos', () => {
