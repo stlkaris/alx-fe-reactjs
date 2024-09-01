@@ -18,8 +18,8 @@ function App () {
         <Route path='/login' element={<Login />}></Route>
         <Route path="/dashbord/*" element={<ProtectedRoute><Dashbord /></ProtectedRoute>}></Route>
         <Route path="/profile/*" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
-        <Route path='/user/:userId' element={<User />}></Route>
-        <Route path="/blog/:postId" element={<BlogPost />}></Route>
+        <Route path='/user/:id' element={<User />}></Route>
+        <Route path="/blog/:id" element={<BlogPost />}></Route>
         </Routes>
     </Router>
 
