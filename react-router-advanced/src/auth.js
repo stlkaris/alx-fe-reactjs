@@ -14,11 +14,11 @@ export function AuthProvider ({children}){
 
     
      const login = (cb) => {
-        setIsAuthenticated = true;
+        setIsAuthenticated(true);
         setTimeout(cb, 100);
     }
     const logout = (cb) => {
-        setIsAuthenticated = false;
+        setIsAuthenticated(false);
         setTimeout(cb, 100)
     }
 
