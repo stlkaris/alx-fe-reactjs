@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, getByText } from '@testing-library/react'
+import { render, fireEvent, getByText, screen } from '@testing-library/react'
 import TodoList from '../components/TodoList'
 
 
@@ -43,4 +43,9 @@ test('deletes a todo', () => {
     expect(queryByText('earn React')).not.toBeInTheDocument();
 });
 
+test('renders TodoList component', () => {
+    render(<TodoList />);
+    const linkElement = screen.getByText(/Todo List/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 
