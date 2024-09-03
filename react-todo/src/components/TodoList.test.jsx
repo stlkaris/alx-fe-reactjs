@@ -18,7 +18,7 @@ test('adds a new todo', () => {
     fireEvent.change(input, {target: { value: 'New Todo'}})
     fireEvent.click(addButton);
     
-    expect(getByText('New Todo')).getByPlaceholderText
+    expect(getByText('New Todo')).toBeInTheDocument();
 });
 
 test('toggles todo completion', () => {
@@ -40,7 +40,7 @@ test('deletes a todo', () => {
     const deleteButton = todo.nextSibling;
 
     fireEvent.click(deleteButton);
-    expect(queryByText('earn React')).not.toBeInTheDocument();
+    expect(queryByText('Learn React')).not.toBeInTheDocument();
 });
 
 test('renders TodoList component', () => {
