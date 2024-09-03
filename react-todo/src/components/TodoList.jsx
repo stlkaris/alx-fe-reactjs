@@ -14,7 +14,7 @@ function TodoList () {
             text,
             completed: false
         }
-        setTodos([...todos, newTodos])
+        setTodos([...todos, newTodo])
     };
 
     const toggleTodo = (id) => {
