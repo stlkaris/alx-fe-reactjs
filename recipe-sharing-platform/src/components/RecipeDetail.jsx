@@ -12,7 +12,6 @@ const RecipeDetail = () => {
         .then((data) => {
             const recipeDetail = data.find((recipe) =>recipe.id === parseInt(id))
             setRecipe(recipeDetail)
-            console.log(data)
         })
         .catch((error) => console.error("Error fetching recipe", error))
     }, [id])
