@@ -3,12 +3,16 @@ import React, { useState } from "react";
 const SearchBar = ({onSearch}) => {
    const  [username, setUsername] = useState('')
    
-   const handleSearch = () => {
+   const handleSearch = (e) => {
     e.preventDefault()
     if(username.trim()) {
+        setError('Please enter a Github username')
+        return;
+    }
+       setError('');
         onSearch(username);
     }
-   }
+   
 
    return (
     <div>
