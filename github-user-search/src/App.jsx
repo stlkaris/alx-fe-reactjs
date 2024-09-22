@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
-import SearchBar from './components/Search';
+import Search from './components/Search';
 import UserProfile from './components/UserProfile';
-import  { fetchUserData} from './services/githubService'
+import  { fetchAdvancedUserData} from './services/githubService'
 
 
     function App() {
@@ -9,7 +9,7 @@ import  { fetchUserData} from './services/githubService'
 
       const handleSearch= async (username) => {
         try {
-          const userData = await fetchUserData(username);
+          const userData = await fetchAdvancedUserData(username);
           setUser(userData);
         } catch (error) {
           console.error('Error fetching user data:', )
@@ -20,7 +20,7 @@ import  { fetchUserData} from './services/githubService'
            return (
         <div className="App">
           <h1>GitHub User Search</h1>
-          <SearchBar onSearch={handleSearch} />
+          <Search onSearch={handleSearch} />
           <UserProfile user={user} />
           {/* Placeholder for search functionality */}
         </div>
