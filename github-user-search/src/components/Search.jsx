@@ -13,7 +13,9 @@ const Search = () => {
     setLoading(true);
     setError('');
     setUser(null); // Clear previous search data
-
+    if (!user) {
+        return <div>Looks like we cant find the user.</div>
+    }
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setUser(response.data); // Store user data in state
