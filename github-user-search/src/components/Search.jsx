@@ -1,6 +1,6 @@
 // src/components/Search.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
+import { fetchUserData } from '../services/githubService'; // Import the fetchUserData function
 
 const Search = () => {
   const [username, setUsername] = useState(''); // Track input value
@@ -13,12 +13,10 @@ const Search = () => {
     setLoading(true);
     setError('');
     setUser(null); // Clear previous search data
-    if (!user) {
-        return <div>Looks like we cant find the user.</div>
-    }
+
     try {
-      const response = await axios.get(`https://api.github.com/users/${username}`);
-      setUser(response.data); // Store user data in state
+      const userData = await fetchUserData(username); // Use fetchUserData to get data
+      setUser(userData); // Store user data in state
     } catch (err) {
       setError('Looks like we can’t find the user.');
     } finally {
@@ -61,5 +59,4 @@ const Search = () => {
 };
 
 export default Search;
-
 
