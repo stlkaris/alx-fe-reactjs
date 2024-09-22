@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 import SearchBar from './components/Search';
 import UserProfile from './components/UserProfile';
-import  { getUserProfile} from './services/githubService'
+import  { fetchUserData} from './services/githubService'
 
 
     function App() {
@@ -9,7 +9,7 @@ import  { getUserProfile} from './services/githubService'
 
       const handleSearch= async (username) => {
         try {
-          const userData = await getUserProfile(username);
+          const userData = await fetchUserData(username);
           setUser(userData);
         } catch (error) {
           console.error('Error fetching user data:', )

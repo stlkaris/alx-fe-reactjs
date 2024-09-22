@@ -4,6 +4,7 @@ const SearchBar = ({onSearch}) => {
    const  [username, setUsername] = useState('')
    
    const handleSearch = () => {
+    e.preventDefault()
     if(username.trim()) {
         onSearch(username);
     }
