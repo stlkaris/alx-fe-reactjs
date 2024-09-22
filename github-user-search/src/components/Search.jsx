@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SearchBar = ({onSearch}) => {
-   const  [username, setUsername] = useState['']
+   const  [username, setUsername] = useState('')
    
    const handleSearch = () => {
     if(username.trim()) {

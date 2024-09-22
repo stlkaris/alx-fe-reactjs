@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserProfile = () => {
+const UserProfile = ({user}) => {
     if (!user) {
         return <div>No user found.</div>
     }
