@@ -14,6 +14,9 @@ const Search = () => {
     setError('');
     setUser(null); // Clear previous search data
 
+    if (!user) {
+        return <div>Looks like we cant find the user.</div>
+    }
     try {
       const userData = await fetchUserData(username); // Use fetchUserData to get data
       setUser(userData); // Store user data in state
