@@ -11,6 +11,7 @@ const SearchBar = ({onSearch}) => {
 
    return (
     <div>
+        <form onSubmit={handleSearch}>
         <input 
         type="text"
         value={username}
@@ -18,6 +19,8 @@ const SearchBar = ({onSearch}) => {
         placeholder="Search Github username"
          />
          <button onClick={handleSearch}>Search</button>
+         </form>
+         {error && <p style={{color: 'red'}}>{error}</p>}
     </div>
    );
 };
