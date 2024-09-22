@@ -9,7 +9,10 @@ export const useRecipeStore = create(set => ({
   
   // Action to update the search term
   setSearchTerm: (term) => set(state => {
-
+    addRecipe: (newRecipe) => set(state => ({
+      recipes: [...state.recipes, newRecipe],
+    }))
+    setRecipes: (recipes) => set({ recipes })
     // Update the search term and filter recipes based on the new term
     const searchTerm = term.toLowerCase();
     const filteredRecipes = state.recipes.filter(recipe => 
