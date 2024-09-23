@@ -8,7 +8,7 @@ const GITHUB_SEARCH_API_URL = 'https://api.github.com/search/users?q=';
       return response.data;
     } catch (error) {
       console.error('Error fetching GitHub user:', error);
-      throw error; // We will handle this error in the component
+      throw error; 
     }
   };
 

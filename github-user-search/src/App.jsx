@@ -1,5 +1,9 @@
+import './App.css'
+
 import React, {useState } from 'react'
+
 import Search from './components/Search';
+
 import UserProfile from './components/UserProfile';
 import  { fetchAdvancedUserData} from './services/githubService'
 

@@ -1,6 +1,6 @@
 // src/components/Search.jsx
 import React, { useState } from 'react';
-import { fetchAdvancedUserData } from '../services/githubService'; // Import the fetchUserData function
+import {fetchUserData, fetchAdvancedUserData } from '../services/githubService'; // Import the fetchUserData function
 
 const Search = () => {
   const [username, setUsername] = useState('');
@@ -29,9 +29,25 @@ const Search = () => {
     }
   };
 
+  const [page, setPage] = useState(1);
+
+const handleNextPage = async () => {
+  setPage(page + 1);
+  const usersData = await fetchAdvancedUserData({ username, location, minRepos, page: page + 1 });
+  setUsers(usersData.items);
+};
+
+const handlePrevPage = async () => {
+  if (page > 1) {
+    setPage(page - 1);
+    const usersData = await fetchAdvancedUserData({ username, location, minRepos, page: page - 1 });
+    setUsers(usersData.items);
+  }
+};
+
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center">GitHub Advanced User Search</h1>
+      <h1 className="text-2xl text-bold mb-4 text-center">GitHub Advanced User Search</h1>
       <form className="space-y-4" onSubmit={handleSearch}>
         <div>
           <input
@@ -77,13 +93,22 @@ const Search = () => {
             <h2 className="font-bold">{user.login}</h2>
             <p>Location: {user.location || 'N/A'}</p>
             <p>Repositories: {user.public_repos}</p>
-            <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+            <a href={user.avatar_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
               View Profile
             </a>
           </div>
         ))}
       </div>
+      <div className="flex justify-between">
+    <button onClick={handlePrevPage} disabled={page === 1} className="bg-gray-500 text-white p-2 rounded">
+      Previous
+    </button>
+    <button onClick={handleNextPage} className="bg-blue-500 text-white p-2 rounded">
+      Next
+    </button>
+  </div>
     </div>
+    
   );
 };
 
